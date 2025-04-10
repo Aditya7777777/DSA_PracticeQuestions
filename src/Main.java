@@ -12,9 +12,6 @@ public class Main {
     }
 //
     static void printArrays(int[] arr){
-        for(int e : arr){
-            System.out.print(e + " ");
-        }
-        System.out.println();
+       
     }
 }
