@@ -1,17 +1,30 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 import java.util.Arrays;
+import java.util.Scanner;
 
-import static java.util.Collections.binarySearch;
+
 
 public class Main {
     public static void main(String[] args) {
-     int[] arr = {4,6,4,8,3,4,6,4,9};
-     printArrays(Arrays.copyOfRange(arr,0,arr.length));
-     printArrays(Arrays.copyOfRange(arr,1,arr.length));
+
     }
-//
-    static void printArrays(int[] arr){
-       
+
+    static int maxSubArray(int[] nums) {
+        int ans = 0;
+        int sum  = 0;
+        for(int i = 0;i<nums.length;i++){
+            for(int j = i;j<nums.length;j++){
+                sum = sum + nums[j];
+                if(sum > ans){
+                    ans = sum;
+                }
+            }
+            sum = 0;
+        }
+
+        return ans;
     }
+
+
 }
