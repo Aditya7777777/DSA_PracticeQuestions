@@ -69,8 +69,8 @@ You add list2 to the set. Now the set holds both list1 and list2.
             Set<Integer> set2 = new HashSet<>();
             for(int j = i+1;j<nums.length;j++){
                 k = -(nums[i] + nums[j]);
-                if(set2.contains(k)){
-                    List<Integer> list = new ArrayList<>(Arrays.asList(k,nums[i],nums[j]));
+                if(set2.contains(k)) {
+                    List<Integer> list = new ArrayList<>(Arrays.asList(k, nums[i], nums[j]));
                     Collections.sort(list);
                     set.add(list);
                 }
@@ -87,8 +87,9 @@ You add list2 to the set. Now the set holds both list1 and list2.
     //Time complexity :O(N^2)
     //Space complexity:O(N^2)
 
-    //Optimal Solution
+    //Optimal Solution :
     //Optimal Solution works for sorted array.
+    //Here we have optimized the space
     static List<List<Integer>> tripletOptimal(int[] nums){
         int n = nums.length;
         List<List<Integer>> List  = new ArrayList<>();
@@ -109,16 +110,18 @@ You add list2 to the set. Now the set holds both list1 and list2.
                     while(j<k && nums[j] == nums[j-1]) j++;
                     while(j<k && nums[k] == nums[k+1]) k--;
                 }else if(sum > 0){
-                        k--;
+                    k--;
                 }else if(sum < 0){
-                        j++;
+                    j++;
                 }
             }
         }
 
         return List;
     }
-    //Time complexity:O(NlogN) + O(N * N) (approx)
+
+
+    //Time complexity:O(NlogN) * O(N * N) (approx)
     //Space complexity:O(t) -> number of triplet found . (Each list contains only three numbers therefore its constant it doesn't increase as the input increases)
 }
 

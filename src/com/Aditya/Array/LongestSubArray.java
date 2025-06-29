@@ -63,7 +63,7 @@ public class LongestSubArray {
             //we write the condition before we put the sum and the index , for the cases when the array contains zeroes and negatives
             // when the array contains zeroes and negatives then there are the chances that the same sum value get added twice
             //and in java when the same key is added twice then copy of key is not created the same key is updated with new value .
-            //What will happen because of this is that the longest sub array will not get created if we add same key with different value
+            //What will happen because of this is that the longest sub array will not get created if we add same key with different value.
             if(!map.containsKey(sum)) {
                 map.put(sum, i);
             }
