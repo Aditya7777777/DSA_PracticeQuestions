@@ -3,7 +3,7 @@ package com.Aditya.Array;
 public class MaxProduct {
     public static void main(String[] args){
       int[] nums = new int[]{-2,0,-1};
-      int ans = maxProduct(nums);
+      int ans = maxProductOptimal(nums);
 
       System.out.print(ans);
     }
@@ -25,4 +25,30 @@ public class MaxProduct {
         }
         return ans;
     }
+    //Time complexity : O(N^2)
+    //Space complexity : O(1)
+
+    //Optimal solution
+    static int maxProductOptimal(int[] nums){
+        int prefixProduct = 1;
+        int suffixProduct= 1;
+
+        int maxi = Integer.MIN_VALUE;
+        int n  = nums.length;
+
+        for(int i = 0;i<n;i++){
+            if(prefixProduct == 0) prefixProduct = 1;
+            if(suffixProduct == 0) suffixProduct = 1;
+
+            prefixProduct = prefixProduct * nums[i];
+            suffixProduct = suffixProduct * nums[n-i-1];
+
+            maxi = Math.max(maxi,Math.max(prefixProduct,suffixProduct));
+        }
+
+        return maxi;
+    }
+
+    //Time complexity : O(N)
+    //Space complexity : O(1)
 }
